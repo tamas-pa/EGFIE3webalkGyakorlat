@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Semester Task</title>
+</head>
+<body>
+<h1>Book List</h1>
+
+<table>
+    <tr>
+        <th>modify</th>
+        <th>delete</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+
+    </tr>
+
+    <tr th:each="book : ${books}">
+        <td>
+            <a th:href="@{bookform+'?id='+${book.id}}">modify</a>
+        </td>
+        <td>
+            <a th:href="@{delete+'?id='+${book.id}}">delete</a>
+        </td>
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+
+    </tr>
+</table>
+
+</body>
+</html>
