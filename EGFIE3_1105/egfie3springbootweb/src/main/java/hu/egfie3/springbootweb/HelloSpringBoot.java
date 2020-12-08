@@ -6,6 +6,6 @@ public class HelloSpringBoot {
 
 	@GetMapping
 	public void index() {
-		System.out.println("Hello spring boot web");
+		System.out.println("Hello spring boot WEB");
 	}
 }
