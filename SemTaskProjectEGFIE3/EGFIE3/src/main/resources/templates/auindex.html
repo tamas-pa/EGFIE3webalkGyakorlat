@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   <head>
+
+      <title>Spring Boot Application</title>
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <header>
+       <div class="mainind">
+
+           <ul>
+               <li class="active"><a href="/home">Home</a></li>
+               <li><a href="/index">Books</a></li>
+               <li><a href="/auindex">Authors</a></li>
+               <li><a href="/login">Log out</a></li>
+           </ul>
+       </div>
+   </header>
+      <div class="content">
+      <h1>Publishers</h1>
+      <table class="content-table">
+         <thead>
+            <tr>
+
+               <th>Name</th>
+               <th>Age</th>
+               <th>Books published</th>
+                <th colspan="2">Operations</th>
+            </tr>
+         </thead>
+         <tbody>
+         <tr th:each="str : ${list}">
+             <td style="display: none;"th:text=${str.id}></td>
+             <td th:text=${str.aname}></td>
+             <td th:text=${str.age}></td>
+             <td th:text=${str.books}></td>
+            <td>
+            <form action="#" th:action="@{/audelete=} + ${{str.id}}" method="get">
+               <button class="bs" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">
+                   <input class="bs" type="submit" value="Delete"/>
+               </button>
+           </form>
+           </td>
+            <td>
+            <form action="#" th:action="@{/auform=} + ${{str.id}}" method="get">
+               <button class="bs" th:id="'table_entry_childs_button_' + ${str.id}" type="submit">
+                   <input class="bs" type="submit" value="Edit"/>
+               </button>
+           </form>
+           </td>
+         </tr>
+         </tbody>
+      </table>
+          <div class="navi-button">
+              <a href="auform" class="btn" >Add</a>
+          </div>
+      </div>
+   </body>
+
+</html>

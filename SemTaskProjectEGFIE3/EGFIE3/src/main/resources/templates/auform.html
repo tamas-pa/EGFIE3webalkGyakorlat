@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head >
+    <body>
+    <header>
+        <div class="mainind">
+
+            <ul>
+                <li class="active"><a href="/home">Home</a></li>
+                <li><a href="/index">Books</a></li>
+                <li><a href="/auindex">Authors</a></li>
+                <li><a href="/login">Log out</a></li>
+            </ul>
+        </div>
+    </header>
+        <div class="wrapper">
+            <h1>Product form</h1>
+            <div class="form-cnt">
+                <form method="POST"
+                      action="#" th:action="@{/auupdate}" th:object="${publisher}">
+                        <div class="input-fields">
+                            <input type="number" class="input" placeholder="Identifier" path="id" th:field="*{id}">
+                            <input type="text" class="input" placeholder="Author's Name" path="id" th:field="*{aname}">
+                            <input type="number" class="input" placeholder="Author's age" path="id" th:field="*{age}">
+                            <input type="number" class="input" placeholder="Books published" path="id" th:field="*{books}">
+
+                        </div>
+                        <br/><br/>
+                        <input class="bs" type="submit" value="Submit"/>
+                        <a href="auindex" class="bs" >Cancel</a>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
